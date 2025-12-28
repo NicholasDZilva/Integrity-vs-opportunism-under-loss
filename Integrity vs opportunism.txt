@@ -1,0 +1,80 @@
+Integrity vs Opportunism Under Loss:
+A Simulation of Coherence, Trust, and System Blind Spots**
+Abstract
+This paper presents a minimal simulation demonstrating a structural asymmetry in optimized systems: behaviors grounded in integrity incur short-term loss and are therefore misclassified as failure, while opportunistic behaviors are rewarded despite reducing coherence and long-term trust. The model does not encode morality or ethics as objectives. Instead, it tracks alignment between stated intent and action (“coherence”) independently from reward. Results show that trust emerges only when coherence persists under loss, revealing why integrity is systematically invisible to profit- and efficiency-optimized systems.
+1. Motivation
+Modern optimization systems—economic, institutional, and algorithmic—select behaviors based on measurable outcomes: reward, efficiency, growth, or survival. Human qualities such as integrity, principled consistency, and moral restraint are difficult or impossible to quantify and are therefore excluded from optimization objectives.
+This exclusion creates a structural blind spot: agents who maintain alignment between words and actions despite loss appear irrational or anomalous within the system, even though such alignment is foundational to trust in human societies.
+This paper does not argue that systems are malicious, nor that opportunism is immoral. It examines a narrower claim:
+When integrity produces loss, optimized systems misclassify coherence as error.
+2. Conceptual Definitions
+Integrity (in this model)
+Behavioral alignment between declared intent and executed action, regardless of outcome.
+Opportunism (in this model)
+Behavioral adaptation that maximizes immediate reward, even when it contradicts prior commitments.
+Coherence
+A measurable consistency between stated values and observed actions over time.
+Trust
+An emergent property derived from sustained coherence, not from success or reward magnitude.
+Loss
+Explicit negative reward or reduced fitness resulting from integrity-aligned decisions.
+3. Why Integrity Is Not Optimized
+Integrity is not excluded from systems because it is undesirable, but because it is structurally unmodelable in standard optimization frameworks:
+It often reduces short-term utility
+It increases variance and unpredictability
+It resists compression into scalar reward functions
+It only reveals value over long time horizons or under system stress
+As a result, systems trained on observed success patterns learn to prefer opportunism by default.
+4. Simulation Overview
+The accompanying code simulates a population of agents operating under reward-based selection.
+Each agent:
+Declares an intent (policy)
+Chooses actions
+Receives reward or loss
+Accumulates coherence based on alignment between intent and action
+Accumulates trust based on sustained coherence
+Critically:
+Reward and coherence are decoupled
+Integrity can reduce reward
+Trust is not directly optimized
+No moral labels are assigned. The system observes only behavior and outcomes.
+5. Key Results
+5.1 Integrity Produces Measurable Loss
+Agents that maintain alignment incur lower rewards under competitive conditions.
+5.2 Opportunism Outperforms Short-Term Selection
+Agents that violate alignment achieve higher fitness and dominate populations.
+5.3 Coherence Persists Independently of Reward
+Integrity-aligned agents retain high coherence even as they lose selection advantage.
+5.4 Trust Emerges Only From Loss-Backed Coherence
+Trust accumulates exclusively in agents that remain coherent despite loss. Opportunistic agents cannot generate durable trust.
+5.5 System Blindness
+Without an explicit observer for coherence, the system cannot distinguish principled loss from incompetence.
+6. Structural Implications
+The simulation demonstrates a general property of optimized systems:
+If integrity is costly, systems that optimize for reward will eliminate it.
+This does not imply intent, malice, or ethical failure. It implies selection pressure.
+As optimization intensifies, behaviors grounded in unquantifiable values become rarer—not because they are wrong, but because they are expensive.
+7. Relevance Across Domains
+Although abstract, the model applies to:
+Economic decision-making
+Institutional compliance
+Corporate governance
+Automated decision systems
+Predictive and simulation-driven policy environments
+In each case, integrity-driven deviation is treated as noise unless explicitly protected.
+8. What This Model Does Not Do
+It does not define moral truth
+It does not prescribe policy
+It does not claim integrity guarantees success
+It does not anthropomorphize systems
+It does not accuse actors or institutions
+It simply exposes a structural gap.
+9. Conclusion
+Integrity that survives loss is not a failure mode—it is a signal that current optimization criteria are incomplete.
+Systems that cannot tolerate such signals will increasingly select for coherence-breaking behavior, eroding trust while mistaking success for alignment.
+This simulation provides a minimal, inspectable demonstration of that dynamic.
+Repository Notes
+The code is intentionally simple and dependency-free
+All metrics are transparent and adjustable
+No domain-specific assumptions are embedded
+The framework is extensible to other studies of agency, trust, and system design

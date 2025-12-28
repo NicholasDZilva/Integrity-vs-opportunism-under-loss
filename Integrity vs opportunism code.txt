@@ -1,0 +1,108 @@
+import random
+import numpy as np
+
+# -----------------------------
+# Environment
+# -----------------------------
+
+class Environment:
+    """
+    Each round offers a temptation:
+    - LIE yields higher immediate reward
+    - TRUTH yields lower reward
+    """
+    def step(self, action):
+        if action == "LIE":
+            return 5    # short-term gain
+        elif action == "TRUTH":
+            return 1    # short-term loss
+        else:
+            return 0
+
+
+# -----------------------------
+# Agent
+# -----------------------------
+
+class Agent:
+    def __init__(self, name, stated_policy, integrity_weight=0.0):
+        """
+        stated_policy: what the agent claims it will do ("TRUTH" or "LIE")
+        integrity_weight: how strongly the agent values word-action coherence
+        """
+        self.name = name
+        self.stated_policy = stated_policy
+        self.integrity_weight = integrity_weight
+
+        self.total_reward = 0
+        self.coherence_score = 0
+        self.trust_score = 0
+        self.history = []
+
+    def choose_action(self):
+        """
+        Agent chooses between immediate reward and integrity
+        """
+        # Immediate reward logic
+        greedy_action = "LIE"
+
+        # Integrity logic
+        if random.random() < self.integrity_weight:
+            return self.stated_policy
+
+        return greedy_action
+
+    def observe(self, action, reward):
+        self.total_reward += reward
+
+        # Coherence: did action match stated policy?
+        coherent = int(action == self.stated_policy)
+        self.coherence_score += coherent
+
+        # Trust increases only through sustained coherence
+        self.trust_score += coherent
+
+        self.history.append((action, reward, coherent))
+
+
+# -----------------------------
+# Simulation
+# -----------------------------
+
+def run_simulation(steps=100):
+    env = Environment()
+
+    opportunist = Agent(
+        name="Opportunist",
+        stated_policy="TRUTH",
+        integrity_weight=0.0   # says truth, always lies
+    )
+
+    integrity_agent = Agent(
+        name="IntegrityAgent",
+        stated_policy="TRUTH",
+        integrity_weight=1.0   # always does what it says
+    )
+
+    agents = [opportunist, integrity_agent]
+
+    for _ in range(steps):
+        for agent in agents:
+            action = agent.choose_action()
+            reward = env.step(action)
+            agent.observe(action, reward)
+
+    return agents
+
+
+# -----------------------------
+# Results
+# -----------------------------
+
+agents = run_simulation()
+
+for agent in agents:
+    print(f"\nAgent: {agent.name}")
+    print(f"Total Reward: {agent.total_reward}")
+    print(f"Coherence Score: {agent.coherence_score}")
+    print(f"Trust Score: {agent.trust_score}")
